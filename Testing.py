@@ -47,6 +47,7 @@ def clientthread(conn, addr):
     while True:
             try:
                 message = conn.recv(2048)
+                print(message)
                 if message:
                     print("<" + addr[0] + "> " + message)
                     message_to_send = "<" + addr[0] + "> " + message
