@@ -43,6 +43,7 @@ def chat_server():
                     data = sock.recv(RECV_BUFFER)
                     if data:
                         print('message recieved')
+                        print(data)
                         # there is something in the socket
                         socket.sendall(data)
                         broadcast(server_socket, sock, "\r" + '[' + str(sock.getpeername()) + '] ' + data)
