@@ -20,8 +20,8 @@ server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 # IP_address = str(sys.argv[1])
 # Port = int(sys.argv[2])
 
-IP_address = '127.0.0.1'
-Port = 65432
+IP_address = '0.0.0.0'
+Port = 9009
 server.bind((IP_address, Port))
 #binds the server to an entered IP address and at the specified port number. The client must be aware of these parameters
 server.listen(100)
