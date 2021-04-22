@@ -39,6 +39,7 @@ def chat_server():
                 # process data recieved from client, 
                 try:
                     # receiving data from the socket.
+                    print('message recieved')
                     data = sock.recv(RECV_BUFFER)
                     if data:
                         # there is something in the socket
