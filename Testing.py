@@ -71,7 +71,7 @@ while True:
     print(_addr[0] + " connected")
     #maintains a list of clients for ease of broadcasting a message to all available people in the chatroom
     #Prints the address of the person who just connected
-    _thread.start_new_thread(clientthread,(conn,_addr))
+    _thread.start_new_thread(clientthread(conn,_addr))
     #creates and individual thread for every user that connects
 
 conn.close()
