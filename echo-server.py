@@ -39,16 +39,18 @@ def chat_server():
                 # process data recieved from client, 
                 try:
                     # receiving data from the socket.
-                    print('message recieved')
+
                     data = sock.recv(RECV_BUFFER)
                     if data:
+                        print('message recieved')
                         # there is something in the socket
+                        socket.send(data)
                         broadcast(server_socket, sock, "\r" + '[' + str(sock.getpeername()) + '] ' + data)
                     else:
                         # remove the socket that's broken    
                         if sock in SOCKET_LIST:
                             SOCKET_LIST.remove(sock)
-
+                            print('removing Socket')
                         # at this stage, no data means probably the connection has been broken
                         broadcast(server_socket, sock, "Client (%s, %s) is offline\n" % addr)
 
@@ -62,6 +64,7 @@ def chat_server():
 
 # broadcast chat messages to all connected clients
 def broadcast(server_socket, sock, message):
+    print('Broadcasting')
     for socket in SOCKET_LIST:
         # send the message only to peer
         if socket != server_socket and socket != sock:
