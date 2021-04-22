@@ -2,7 +2,7 @@ import sys
 import socket
 import select
 
-HOST = '127.0.0.1'
+HOST = '0.0.0.0'
 SOCKET_LIST = []
 RECV_BUFFER = 4096
 PORT = 9009
